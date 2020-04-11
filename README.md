@@ -1,4 +1,4 @@
-# APP_NAME_HERE
+# sportsMeetup
 
 ## Table of Contents
 1. [Overview](#Overview)
