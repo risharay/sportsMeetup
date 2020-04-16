@@ -63,7 +63,7 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="Screen Shot 2020-04-15 at 8.07.06 PM.png">
 
 ### [BONUS] Digital Wireframes & Mockups
 
