@@ -8,16 +8,15 @@
 
 ## Overview
 ### Description
-[Description of your app]
+This app lets you have fun with sports you enjoy, while also meeting new people. It allows you to choose a particular sport and team up with people nearby.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
-- **Category:**
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+- **Category:** Social Networking
+- **Mobile:** This is developed for mobile due to its efficiency and accessibility, but its functions can also be transfered over to a website application as well.
+- **Story:** Allows users to select groups and meetup with people beased on location and sport specification. 
+- **Market:** Any individual interested in sports can use this app.
+- **Habit:** This app can be used anytime based on the user's liking and preference for a particular sport. 
+- **Scope:** It will start off with a few people, but once the users grow it will allow for a better interaction/matching among users based on the type of sport and location. 
 
 ## Product Spec
 
