@@ -62,8 +62,13 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 * Profile -> Settings
 
 ## Wireframes
-* work in progress - basic model
+<img src = "Screen Shot 2020-04-16 at 1.43.44 PM.png">
+<img src = "Screen Shot 2020-04-16 at 1.43.50 PM.png">
+<img src = "Screen Shot 2020-04-16 at 1.45.46 PM.png">
+
+* Story Board Preview
 <img src="Screen Shot 2020-04-15 at 8.07.06 PM.png">
+
 
 ## Schema 
 [This section will be completed in Unit 9]
