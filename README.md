@@ -62,12 +62,8 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 * Profile -> Settings
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
+* work in progress - basic model
 <img src="Screen Shot 2020-04-15 at 8.07.06 PM.png">
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
 
 ## Schema 
 [This section will be completed in Unit 9]
