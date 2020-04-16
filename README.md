@@ -24,39 +24,42 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can sign up.
+* User can login.
+* User can choose sport.
+* User can choose location.
+* User can form/join a team.
+* Profile pages for each user
+* Settings (Accesibility, Notification, General, etc.)
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can choose location from map.
+* User can add friends.
+* User can rate location.
+* User can use app as a guest.
 
 ### 2. Screen Archetypes
 
-* [list first screen here]
-   * [list associated required story here]
-   * ...
-* [list second screen here]
-   * [list associated required story here]
-   * ...
+* Login
+* Register
+* Profile Screen
+* Start a Game Screen - User can choose their preferences/sport.
+* Select a Team Screen - User sees a list of teams and choose one.
+* Settings Screen
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Profile 
+* Game
+* Settings
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Forced Log-in -> Account creation if no log in is available
+* Profile -> Settings
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
