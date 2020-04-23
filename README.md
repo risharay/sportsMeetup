@@ -71,10 +71,42 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+User
+| Property  | Type    |Description |
+| ------------- | ------------- | -------- |
+|  userId | Number  | unique id for the user |
+| username | String  | unique username for the user |
+| profilePic | File | profile picture for the user |
+| bio | String | profile description for the user  |
+
+Game 
+| Property  | Type    |Description |
+| ------------- | ------------- | -------- |
+| location | String | location of the meetup place |
+| gameId | Number | unique id for game|
+
+Team 
+| Property  | Type    |Description |
+| ------------- | ------------- | -------- |
+| teamId | Number | unique id for team |
+| noUsers | Number | number of users in the team |
+
+
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+List of network requests by screen
+
+Profile Screen
+(Read/GET) Query logged in user object
+(Update/PUT) Update user profile image
+
+Base url: https://www.yelp.com/developers
+
+| HTTP  | Endpoint  |Description |
+| ------------- | ------------- | -------- |
+| GET | /businesses/search | search businesses|
+| GET | /location | The location of this business, including address, city, state, zip code and country.|
+|GET |/photos | URLs of up to three photos of the business.|
+
