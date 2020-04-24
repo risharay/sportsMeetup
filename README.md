@@ -90,10 +90,11 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 
 #### Team
 
-| Property | Type   | Description |
-| -------- | ------ | ----------- |
-| teamId   | Number | unique id for team |
-| noUsers  | Number | number of users in the team |
+| Property   | Type   | Description |
+| ---------- | ------ | ----------- |
+| teamId     | Number | unique id for team |
+| noUsers    | Number | number of users in the team |
+| createdBy  | Pointer to User | team creator |
 
 ### Networking
 #### List of network requests by screen
@@ -103,9 +104,9 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
         guard let user = PFUser.current() else {
             print("Failed to get user")
         }
-        let username = user["profilePic"]
-        let bio = user["bio"]
-        let profilePic = user["profilePic"]
+        let username = user["profilePic"] as? String
+        let bio = user["bio"] as? String
+        let profilePicFile = user["profilePic"] as! PFFileObject
         ```
       - (Update/PUT) Update user information
         ```swift
@@ -165,6 +166,24 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
               print("Successfully retrieved \(teams.count) teams.")
               // TODO: Do something with teams...
            }
+        }
+        ```
+      - (Create/POST) Create team
+        ```swift
+        guard let user = PFUser.current() else {
+            print("Failed to get user")
+        }
+        let team = PFObject(className: "Team")
+        team["createdBy"] = user
+        team["noUsers"] = 1
+        
+        team.saveInBackground { (success, error) in
+            if success {
+                print("Successfully created team!")
+            }
+            else {
+                print("Failed to create team!")
+            }
         }
         ```
 #### [OPTIONAL:] Existing API Endpoints
