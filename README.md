@@ -69,44 +69,112 @@ This app lets you have fun with sports you enjoy, while also meeting new people.
 * Story Board Preview
 <img src="Screen Shot 2020-04-15 at 8.07.06 PM.png">
 
-
 ## Schema 
-
 ### Models
-User
-| Property  | Type    |Description |
-| ------------- | ------------- | -------- |
-|  userId | Number  | unique id for the user |
-| username | String  | unique username for the user |
-| profilePic | File | profile picture for the user |
-| bio | String | profile description for the user  |
+#### User
 
-Game 
-| Property  | Type    |Description |
-| ------------- | ------------- | -------- |
+| Property   | Type          | Description |
+| ---------- | ------------- | ----------- |
+| userId     | Number  | unique id for the user |
+| username   | String  | unique username for the user |
+| profilePic | File    | profile picture for the user |
+| bio        | String  | profile description for the user  |
+
+#### Game
+
+| Property | Type   | Description |
+| -------- | ------ | ----------- |
+| gameId   | Number | unique id for game |
 | location | String | location of the meetup place |
-| gameId | Number | unique id for game|
+| sport    | String | sport to be played
 
-Team 
-| Property  | Type    |Description |
-| ------------- | ------------- | -------- |
-| teamId | Number | unique id for team |
-| noUsers | Number | number of users in the team |
+#### Team
 
-
+| Property | Type   | Description |
+| -------- | ------ | ----------- |
+| teamId   | Number | unique id for team |
+| noUsers  | Number | number of users in the team |
 
 ### Networking
-List of network requests by screen
+#### List of network requests by screen
+   - Profile Screen
+      - (Read/GET) Get logged in user information
+        ```swift
+        guard let user = PFUser.current() else {
+            print("Failed to get user")
+        }
+        let username = user["profilePic"]
+        let bio = user["bio"]
+        let profilePic = user["profilePic"]
+        ```
+      - (Update/PUT) Update user information
+        ```swift
+        guard let user = PFUser.current() else {
+            print("Failed to get user")
+        }
+        user["username"] = "michaeljordan23"
+        user["bio"] = "I love basketball!"
 
-Profile Screen
-(Read/GET) Query logged in user object
-(Update/PUT) Update user profile image
+        let profilePicData = photoView.image?.pngData()
+        let file = PFFileObject(name: "profile.png", data: profilePicData!)
+        user["profilePic"] = file
 
-Base url: https://www.yelp.com/developers
+        user.save()
+        ```
+   - Game Screen
+      - (Read/GET) Get games
+        ```swift
+        let query = PFQuery(className:"Game")
+        query.whereKey("sport", equalTo: sport)
+        query.findObjectsInBackground { (games: [PFObject]?, error: Error?) in
+           if let error = error {
+              print(error.localizedDescription)
+           } else if let games = games {
+              print("Successfully retrieved \(games.count) games.")
+              // TODO: Do something with games...
+           }
+        }
+        ```
+      - (Read/GET) Get game by id
+        ```swift
+        let query = PFQuery(className:"Game")
+        query.whereKey("gameId", equalTo: gameId)
+        query.findObjectsInBackground { (games: [PFObject]?, error: Error?) in
+           if let error = error {
+              print(error.localizedDescription)
+           } else if let games = games {
+              print("Successfully retrieved \(games.count) games.")
+              // TODO: Do something with games...
+           }
+        }
+        ```
+   - Team Screen
+      - (Read/GET) Get teams
+        ```swift
+        let team1query = PFQuery(className:"Team")
+        team1query.whereKey("teamId", equalTo: teamId1)
+        
+        let team2query = PFQuery(className:"Team")
+        team2query.whereKey("teamId", equalTo: teamId2)
+        
+        let query = PFQuery.orQuery(withSubqueries: [team1query, team2query])    
+        query.findObjectsInBackground { (teams: [PFObject]?, error: Error?) in
+           if let error = error {
+              print(error.localizedDescription)
+           } else if let teams = teams {
+              print("Successfully retrieved \(teams.count) teams.")
+              // TODO: Do something with teams...
+           }
+        }
+        ```
+#### [OPTIONAL:] Existing API Endpoints
+##### Yelp API
+- Base URL - https://api.yelp.com/v3
 
 | HTTP  | Endpoint  |Description |
 | ------------- | ------------- | -------- |
-| GET | /businesses/search | search businesses|
-| GET | /location | The location of this business, including address, city, state, zip code and country.|
-|GET |/photos | URLs of up to three photos of the business.|
-
+| `GET` | /businesses/search | search businesses |
+| `GET` | /businesses/search?location=location | search businesses by location (i.e. city) |
+| `GET` | /businesses/search?latitude=latitude&longitude=longitude | search businesses by latitude & longitude coordinates (i.e. current location) |
+| `GET` | /businesses/search?location=location&categories=categories | search businesses by location (i.e. city) and categories (i.e. basketballcourts) |
+| `GET` | /businesses/{id} | return specific business by id |
